@@ -1,0 +1,18 @@
+.cards {
+    text-align: center;
+}
+.cards_container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+.cards_wrapper {
+
+}
+.cards_items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 50px auto;
+}
