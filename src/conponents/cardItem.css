@@ -27,3 +27,6 @@
 .card_item-indif i:hover {
     cursor: pointer;
 }
+.fa, .fas {
+    color: red;
+}

@@ -16,3 +16,48 @@
     list-style: none;
     margin: 50px auto;
 }
+.like_btn {
+    cursor: pointer;
+    border: 1px solid black;
+    padding: 5px;
+    background: white;
+    color: black;
+}
+.like_btn:hover {
+    background: aqua;
+    transform: scale(1.025);
+}
+
+
+.navbar {
+    height: 70px;
+    width: 100%;
+    background: #000000;
+    display: flex;
+    text-align: center;
+}
+.navbar_container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar_home,
+.navbar_likes {
+    font-size: 40px;
+    padding: 5px;
+    margin: 5px auto;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    transition: all 0.8s ease;
+    cursor: pointer;
+}
+
+.navbar_home:hover,
+.navbar_likes:hover {
+    /*color: #4b0071;*/
+    color: #3e0090;
+    transition: all 0.8s ease;
+}
