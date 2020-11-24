@@ -3,26 +3,13 @@ import CardItem from "./cardItem";
 import './cards.css';
 
 export default class Cards extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            like: false
-        }
-        this.onLike = this.onLike.bind(this);
-    }
-    onLike() {
-        this.setState(({like}) => ({
-            like: !like
-        }))
-        console.log(this.state.like)
-    }
+    
     render() {
 
 
         const postList = this.props.posts.map((item) =>
             <li className="card_item" key={item.id} onClick={this.onLike}>
                 <CardItem
-                    liked={this.state.like}
                     src={item.download_url}
                     id={item.id}
                     text={item.author}

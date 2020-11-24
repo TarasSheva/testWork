@@ -30,3 +30,9 @@
 .fa, .fas {
     color: red;
 }
+
+@media screen and (max-width: 600px){
+    .card_item {
+        margin: 7px 15px;
+    }
+}

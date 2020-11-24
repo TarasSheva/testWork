@@ -160,4 +160,8 @@
 }
 
 @media screen and (max-width: 768px) {
+    .footer-link-items {
+        margin: 10px;
+        width: 120px;
+    }
 }

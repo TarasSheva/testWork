@@ -61,3 +61,13 @@
     color: #3e0090;
     transition: all 0.8s ease;
 }
+
+@media screen and (max-width: 600px){
+    .cards_items {
+        margin: 20px auto;
+    }
+    .navbar_home, .navbar_likes {
+        font-size: 30px;
+        padding: 10px;
+    }
+}
