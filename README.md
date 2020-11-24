@@ -12,7 +12,8 @@ yulia.serbina.hr@gmail.com
 
 ReactJS\
 GitH\
-GitHubPages
+GitHubPages\
+Приложение адаптивно под любой гаджет
 
 ### Время выполнения задания ~12часов.
 4 дня - уделял по 3 часа в день  
