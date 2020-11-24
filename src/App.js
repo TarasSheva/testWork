@@ -7,11 +7,8 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            showAll: true,
-            showLiked: false
+            data: []
         }
-        this.showPost = this.showPost.bind(this);
     }
     componentDidMount() {
         fetch("https://picsum.photos/v2/list")
@@ -28,20 +25,14 @@ export default class App extends Component {
             )
     }
 
-    showPost() {
-        this.setState(({showLiked, showAll}) => ({
-            showLiked: !showLiked,
-            showAll: !showAll
-        }))
-    }
 
     render() {
-        const {data, like} = this.state;
+        const {data} = this.state;
 
 
         return (
             <div className="App">
-                <Cards homeLiked={this.showPost} posts={data} />
+                <Cards  posts={data} />
                 <Footer/>
             </div>
         );

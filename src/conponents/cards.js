@@ -3,12 +3,27 @@ import CardItem from "./cardItem";
 import './cards.css';
 
 export default class Cards extends Component {
-    
-    render() {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showAll: true,
+            showLiked: false
+        }
+        this.showPost = this.showPost.bind(this);
+    }
 
+    showPost() {
+        this.setState(({showLiked, showAll}) => ({
+            showLiked: !showLiked,
+            showAll: !showAll
+        }))
+    }
+
+    render() {
+        const {showAll, showLiked} = this.state;
 
         const postList = this.props.posts.map((item) =>
-            <li className="card_item" key={item.id} onClick={this.onLike}>
+            <li className="card_item" key={item.id} >
                 <CardItem
                     src={item.download_url}
                     id={item.id}
@@ -17,6 +32,8 @@ export default class Cards extends Component {
             </li>
         )
 
+        const postLikeList = <h1>You didn't like any post</h1>;
+
 
         return (
             <div className="cards">
@@ -24,16 +41,14 @@ export default class Cards extends Component {
                     <div className="navbar_container">
                         <div
                             className="navbar_home"
-                            onClick={this.props.homeLiked
-                                ? null
-                                : this.props.homeLiked}>
+                            onClick={showAll ? null : this.showPost}
+                            >
                             Home
                         </div>
                         <div
                             className="navbar_likes"
-                            onClick={this.props.homeLiked
-                                ? null
-                                : this.props.homeLiked}>
+                            onClick={showLiked ? null : this.showPost }
+                            >
                             Likes
                         </div>
                     </div>
@@ -41,9 +56,9 @@ export default class Cards extends Component {
                 <div className="cards_container">
                     <div className="cards_wrapper">
                         <ul className="cards_items">
-                            {this.props.homeLiked
+                            {this.state.showAll
                                 ? postList
-                                : null}
+                                : postLikeList}
                         </ul>
                     </div>
                 </div>

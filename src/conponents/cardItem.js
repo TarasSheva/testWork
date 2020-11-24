@@ -22,13 +22,11 @@ export default class CardItem extends Component {
 
         if (this.state.like) {
             classNameLike = 'fas fa-heart';
-            console.log(this.state.like)
         }
 
 
         return (
             <div>
-
                 <div className="card_item-wrap">
                     <img src={this.props.src} alt="" className="card_item-img"/>
                 </div>
@@ -42,7 +40,6 @@ export default class CardItem extends Component {
                     </div>
                     <h5 className="card_item-text">Author: {this.props.text}</h5>
                 </div>
-
             </div>
         )
     }
