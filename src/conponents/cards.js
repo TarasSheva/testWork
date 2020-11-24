@@ -3,42 +3,32 @@ import CardItem from "./cardItem";
 import './cards.css';
 
 export default class Cards extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            data: [],
-            showAll: true,
-            showLiked: false
+            like: false
         }
-        this.showPost = this.showPost.bind(this);
+        this.onLike = this.onLike.bind(this);
     }
-    componentDidMount() {
-        fetch("https://picsum.photos/v2/list")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    this.setState({
-                        data: result
-                    });
-                },
-                (error) => {
-                    console.log(error)
-                }
-            )
-    }
-    showPost() {
-        this.setState(({showLiked, showAll}) => ({
-            showLiked: !showLiked,
-            showAll: !showAll
+    onLike() {
+        this.setState(({like}) => ({
+            like: !like
         }))
+        console.log(this.state.like)
     }
-
-
     render() {
-        const {data, showAll, showLiked} = this.state;
-        const postList = data.map((item)=><CardItem src={item.download_url} id={item.id} key={item.id} text={item.author}/>);
-        const postLikedList = null;
+
+
+        const postList = this.props.posts.map((item) =>
+            <li className="card_item" key={item.id} onClick={this.onLike}>
+                <CardItem
+                    liked={this.state.like}
+                    src={item.download_url}
+                    id={item.id}
+                    text={item.author}
+                />
+            </li>
+        )
 
 
         return (
@@ -47,16 +37,16 @@ export default class Cards extends Component {
                     <div className="navbar_container">
                         <div
                             className="navbar_home"
-                            onClick={showAll
+                            onClick={this.props.homeLiked
                                 ? null
-                                : this.showPost}>
+                                : this.props.homeLiked}>
                             Home
                         </div>
                         <div
                             className="navbar_likes"
-                            onClick={showLiked
+                            onClick={this.props.homeLiked
                                 ? null
-                                : this.showPost}>
+                                : this.props.homeLiked}>
                             Likes
                         </div>
                     </div>
@@ -64,13 +54,14 @@ export default class Cards extends Component {
                 <div className="cards_container">
                     <div className="cards_wrapper">
                         <ul className="cards_items">
-                            {this.state.showAll
+                            {this.props.homeLiked
                                 ? postList
-                                : postLikedList}
+                                : null}
                         </ul>
                     </div>
                 </div>
             </div>
         )
+
     }
 }
