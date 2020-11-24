@@ -1,13 +1,12 @@
 import React from 'react';
 import './footer.css';
 
-
-function Footer() {
+const Footer = () => {
     return (
         <div className='footer-container'>
             <section className='footer-subscription'>
                 <p className='footer-subscription-heading'>
-                    Join the Adventure newsletter to receive our best vacation deals
+                    Join the newsletter to our best images
                 </p>
                 <p className='footer-subscription-text'>
                     You can unsubscribe at any time.

@@ -23,17 +23,26 @@ export default class Cards extends Component {
         const {showAll, showLiked} = this.state;
 
         const postList = this.props.posts.map((item) =>
-            <li className="card_item" key={item.id} >
-                <CardItem
-                    src={item.download_url}
-                    id={item.id}
-                    text={item.author}
+            <li className="card_item" key={item.id}>
+                <CardItem liked={() => this.props.onToggleLike(item.id)}
+                          src={item.download_url}
+                          id={item.id}
+                          text={item.author}
+                          url={item.url}
                 />
             </li>
         )
-
-        const postLikeList = <h1>You didn't like any post</h1>;
-
+        // const sss = <h1>You didn't like any post</h1>;
+        const postLikeList = this.props.postLikes.map((item) =>
+            <li className="card_item" key={item.id}>
+                <CardItem liked={() => this.props.onToggleLike(item.id)}
+                          src={item.download_url}
+                          id={item.id}
+                          text={item.author}
+                          url={item.url}
+                />
+            </li>
+        )
 
         return (
             <div className="cards">
@@ -42,14 +51,14 @@ export default class Cards extends Component {
                         <div
                             className="navbar_home"
                             onClick={showAll ? null : this.showPost}
-                            >
-                            Home
+                        >
+                            Home ({this.props.all})
                         </div>
                         <div
                             className="navbar_likes"
-                            onClick={showLiked ? null : this.showPost }
-                            >
-                            Likes
+                            onClick={showLiked ? null : this.showPost}
+                        >
+                            Likes ({this.props.liked})
                         </div>
                     </div>
                 </nav>
@@ -64,6 +73,5 @@ export default class Cards extends Component {
                 </div>
             </div>
         )
-
     }
 }

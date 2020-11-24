@@ -26,6 +26,5 @@ yarn-error.log*
 #idea
 /.idea
 
-README.md
 package.json
 yarn.lock

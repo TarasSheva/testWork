@@ -24,10 +24,18 @@
     justify-content: space-between;
     padding: 0 30px 5px;
 }
+.card_item-indif p {
+    color: #3e0090;
+    font-weight: bold;
+}
+
+.card_item-text {
+    font-weight: bold;
+}
 .card_item-indif i:hover {
     cursor: pointer;
 }
-.fa, .fas {
+.fas {
     color: red;
 }
 
